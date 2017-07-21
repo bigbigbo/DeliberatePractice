@@ -21,4 +21,13 @@
 *  避免在标签内使用`align、bgcolor、color`属性
 *  `<pre></pre>`标签将保留你输入的空格和换行，适合放置代码片段
 *  还有一个`<address></address>`标签，用来描述地址的
-*  `<abbr title="etcetera">etc.</abbr>`、`<acronym title="World Wide          Web">WWW</acronym>`，感觉没什么卵用的缩写标签
+*  感觉没什么卵用的缩写标签
+   
+        <abbr title="etcetera">etc.</abbr>
+        <acronym title="World Wide Web">WWW</acronym>
+       
+*  改变文字方向的鸡儿标签
+
+        <bdo dir="rtl">
+          Here is some Hebrew text
+        </bdo>
