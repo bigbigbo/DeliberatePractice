@@ -18,7 +18,7 @@ class EventEmitter {
     eventListeners.forEach(listener => {
       const eventFunc = listener.func;
       if (eventFunc) {
-        eventFunc(...args);
+        eventFunc.call(this, ...args);
       }
     });
   }
@@ -32,11 +32,14 @@ class EventEmitter {
   }
 }
 
-
 const emitter = new EventEmitter();
-const sayHi = (name) => console.log(`Hello ${name}`);
+// const sayHi = (name) => console.log(`Hello ${name}`, this);
 const sayHi2 = (name) => console.log(`Good night, ${name}`);
 
+function sayHi(name) {
+  console.log('我的this', this)
+  console.log(`Hello ${name}`)
+}
 emitter.on('hi', sayHi);
 emitter.on('hi', sayHi2);
 emitter.emit('hi', 'ScriptOJ');
@@ -52,4 +55,5 @@ emitter2.on('hi', (name, age) => {
   console.log(`I am ${name}, and I am ${age} years old`);
 });
 emitter2.emit('hi', 'Jerry', 12);
+
 // => I am Jerry, and I am 12 years old
