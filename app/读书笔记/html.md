@@ -86,7 +86,7 @@
     *  filename 定义文档/资源的名称
 
 *  URL scheme
-  <table border="1">
+  <table>
     <tr>
       <th>Scheme</th>
       <th>访问</th>
@@ -125,3 +125,20 @@
 
 Web 世界中存在许多不同的文档。只有了解文档的类型，浏览器才能正确地显示文档。
 HTML 也有多个不同的版本，只有完全明白页面中使用的确切 HTML 版本，浏览器才能完全正确地显示出 HTML 页面。这就是 <!DOCTYPE> 的用处。<!DOCTYPE> 不是 HTML 标签。它为浏览器提供一项信息（声明），即 HTML 是用什么版本编写的。
+
+## HTML5
+  
+### 新的语义标签
+*  `<article>`
+*  `<aside>`
+*  `<details>`
+*  `<figcaption>`
+*  `<figure>`
+*  `<footer>`
+*  `<header>`
+*  `<main>`
+*  `<mark>`
+*  `<nav>`
+*  `<section>`
+*  `<summary>`
+*  `<time>`

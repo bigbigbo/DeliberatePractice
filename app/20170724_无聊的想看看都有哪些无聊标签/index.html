@@ -4,8 +4,13 @@
 <head>
     <title>都有啥标签啊 - -</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <style>
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,6 +48,40 @@
     <br>
     <a name="tips">到这里啊</a>
     <p>好多标签啊 - - 不想写了</p>
+    <input type="color" name="color" />
+    <br/>
+    <input type="date" size="60">
+    <br/>
+    <input type="range">
+    <br/>
+    <input type="month">
+    <br/>
+    <input type="week">
+    <br/>
+    <input type="time">
+    <br/>
+    <input type="datetime">
+    <br/>
+    <input type="checkbox">啊哈哈<br/>
+    <input type="radio" name="sex" value="male" checked>Male <br>
+    <input type="radio" name="sex" value="female">Female
+    <br/>
+    <form action="action_page.php" autocomplete="on">
+        First name:<input type="text" name="fname"><br> Last name: <input type="text" name="lname"><br> E-mail: <input type="email" name="email" autocomplete="off"><br>
+        <input type="submit">
+    </form>
+    <input list="browsers">
+
+    <datalist id="browsers">
+      <option value="Internet Explorer">
+      <option value="Firefox">
+      <option value="Chrome">
+      <option value="Opera">
+      <option value="Safari">
+    </datalist>
+    <input type="file" name="img" multiple> Country code:
+    <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+    <p>发现一个有趣的东西，如果你的body高度很大，表单输入的时候会键盘弹起不会遮挡表单，但是如果你将内容放置在一个overflow:scroll;的元素里，键盘就会被遮挡了</p>
 </body>
 
 </html>
