@@ -24,14 +24,30 @@ body {
 .bg_purple_2 {
   background-color: #9900dc;
 }
+.whitespace--sm {
+  padding: 0.13333rem;
+}
+.whitespace {
+  padding: 0.2rem;
+}
+.whitespace--lg {
+  padding: 0.32rem;
+}
 .page_2,
 .page_3,
 .page_4,
+.page_5,
 .page_6,
 .btn--black,
 .btn--red {
-  margin-top: -0.05333rem;
+  margin-top: -0.10667rem;
 }
 .btn {
-  padding: 0.24rem;
+  padding: 0.32rem;
+}
+.btn--small {
+  width: 3.2rem;
+}
+.btn--big {
+  width: 5.6rem;
 }
