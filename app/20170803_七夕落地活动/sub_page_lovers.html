@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- <script src="http://g.tbcdn.cn/mtb/lib-flexible/0.3.2/??flexible_css.js,flexible.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="./index.rem.css">
+</head>
+<body>
+    <div id="qixi_lovers" class="qixi_container w100">
+        <!-- page 开头的都是大图  -->
+    </div>
+
+    <script>
+        let pageHtml = ''
+        const qixiLoversContainer = document.getElementById('qixi_lovers')
+        const renderPageHtml = (imgId) => {
+            const url = `../assets/tee_qixi/lovers/${imgId}.png`
+            return `<div class="page_2 w100 click">
+                <img src=${url} alt="page_2" class="w100" />
+            </div>`
+        }
+        for(let i = 1; i < 12; i++ ) {
+            pageHtml += renderPageHtml(i)
+        }
+        qixiLoversContainer.innerHTML = pageHtml
+    </script>
+</body>
+</html>

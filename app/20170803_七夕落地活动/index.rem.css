@@ -1,10 +1,6 @@
 * {
-  padding: 0;
   margin: 0;
-}
-html,
-body {
-  background-color: white;
+  padding: 0;
 }
 .w100 {
   width: 100%;
@@ -25,29 +21,36 @@ body {
   background-color: #9900dc;
 }
 .whitespace--sm {
-  padding: 0.13333rem;
+  padding: 5px;
 }
 .whitespace {
-  padding: 0.2rem;
+  padding: 8px;
 }
 .whitespace--lg {
-  padding: 0.32rem;
+  padding: 12px;
 }
-.page_2,
-.page_3,
-.page_4,
-.page_5,
-.page_6,
-.btn--black,
-.btn--red {
-  margin-top: -0.10667rem;
+.qixi_container .page_2,
+.qixi_container .page_3,
+.qixi_container .page_4,
+.qixi_container .page_5,
+.qixi_container .page_6,
+.qixi_container .btn--black,
+.qixi_container .btn--red {
+  margin-top: -4px;
 }
-.btn {
-  padding: 0.32rem;
+.qixi_container .btn {
+  padding: 12px;
 }
-.btn--small {
-  width: 3.2rem;
+.qixi_container .btn--small {
+  width: 32%;
 }
-.btn--big {
-  width: 5.6rem;
+.qixi_container .btn--big {
+  width: 56%;
+}
+.qixi_container .click {
+  transition: all .4s;
+}
+.qixi_container .click:active {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }

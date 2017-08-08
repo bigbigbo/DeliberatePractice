@@ -16,13 +16,7 @@ var filePath = {
 }
 
 var postcssAutoprefixer = [
-  autoprefixer({browsers: ['> 1%'], cascade: false}),
-  pxtorem({
-    replace: true,
-    rootValue: 75,
-    unitPrecision: 5,
-    propWhiteList: []
-  })
+  autoprefixer({browsers: ['> 1%'], cascade: false})
 ];
 
 var postcssPxtorem = [
@@ -69,8 +63,8 @@ gulp.task('serve', ['sass', 'less'], function() {
       server: "./app"
   });
 
-  gulp.watch(filePath.less, ['less', 'px2rem']);
-  gulp.watch(filePath.scss, ['sass', 'px2rem']);
+  gulp.watch(filePath.less, ['less']);
+  gulp.watch(filePath.scss, ['sass']);
   gulp.watch("app/**/*.html").on('change', reload);
 });
 

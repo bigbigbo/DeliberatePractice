@@ -3,11 +3,9 @@
 @sub-primary-color_1: #8c00d8;
 @sub-primary-color_2: #9900dc;
 
-// 暂时先做*处理
-*{padding: 0; margin: 0};
-
-html, body{
-    background-color: white;
+*{
+    margin: 0;
+    padding: 0;
 }
 
 // atom css
@@ -36,31 +34,42 @@ html, body{
 }
 
 .whitespace--sm{
-    padding: 10px;
+    padding: 5px;
 }
 
 .whitespace{
-    padding: 15px;
+    padding: 8px;
 }
 
 .whitespace--lg{
-    padding: 24px;
+    padding: 12px;
 }
 
 // 页面样式
 
-.page_2, .page_3, .page_4, .page_5, .page_6, .btn--black, .btn--red{
-    margin-top: -8px;
+.qixi_container{
+    .page_2, .page_3, .page_4, .page_5, .page_6, .btn--black, .btn--red{
+        margin-top: -4px;
+    }
+
+    .btn{
+        padding: 12px;
+    }
+
+    .btn--small{
+        width: 240/750*100%;
+    }
+
+    .btn--big{
+        width: 420/750*100%;
+    }
+
+    .click{
+        transition: all .4s;
+
+        &:active{
+            transform: scale(1.1);
+        }
+    }
 }
 
-.btn{
-    padding: 24px;
-}
-
-.btn--small{
-    width: 240px;
-}
-
-.btn--big{
-    width: 420px;
-}
