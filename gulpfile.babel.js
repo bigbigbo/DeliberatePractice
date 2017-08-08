@@ -1,6 +1,4 @@
 import gulp from 'gulp';
-import fs from 'fs';
-import del from 'del';
 import sass from 'gulp-sass';
 import less from 'gulp-less';
 import notify from 'gulp-notify';
@@ -93,12 +91,13 @@ gulp.task('babeljs', function() {
   // }))
   .pipe(gulp.dest('dist'))
   .pipe(webpack({
-    output: {filename: 'bundle.js'}
+    output: {filename: '[name].js'}
   }))
   .pipe(gulp.dest(e => {
     console.log(e.cwd, e.base, e.path)
     return 'dist'
-  }));
+  }))
+  .pipe(reload({stream: true}));
 })
 
 // 编译ts
@@ -109,7 +108,8 @@ gulp.task('typescript', function() {
   return tsResult.js.pipe(rename({
     suffix: '.ts'
   }))
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest('dist'))
+  .pipe(reload({stream: true}));
 });
 
 // 清除index.html文件
