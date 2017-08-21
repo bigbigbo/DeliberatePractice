@@ -1,4 +1,6 @@
 import gulp from 'gulp';
+import fs from 'fs';
+import path from 'path';
 import sass from 'gulp-sass';
 import less from 'gulp-less';
 import notify from 'gulp-notify';
@@ -18,11 +20,30 @@ const reload = browserSync.reload;
 const filePath = {
   html: 'app/**/*.html',
   js: 'app/**/*.js',
+  jsx: 'app/**/*.jsx',
+  tsx: 'app/**/*.tsx',
   ts: 'app/**/*.ts',
   less: 'app/**/*.less',
   scss: 'app/**/*.scss',
   remcss: ['app/**/*.rem.sass','app/**/*.rem.less','app/**/*.rem.css']
 }
+const whiteList = ['.DS_Store', '读书笔记', 'assets', 'js', 'template.html']
+const ENTRY_PATH = path.join(__dirname, 'app')
+const entryFiles = fs.readdirSync(ENTRY_PATH)
+// 编译react的入口文件
+const entryObj = {}
+const entryArr = []
+entryFiles.filter(dir => !whiteList.includes(dir))
+.forEach(dir => {
+  const dirpath = path.join(__dirname, 'app/' + dir)
+  const dirFiles = fs.readdirSync(dirpath).filter(file => file.includes('index.jsx'))
+  if(dirFiles.length > 0) {
+    const name = dirFiles[0].split('.')[0]
+    const entrypath = path.join(__dirname, 'app/'+ dir + '/' + dirFiles[0])
+    entryObj[name] = entrypath
+    entryArr.push('app/'+ dir + '/' + dirFiles[0])
+  }
+})
 
 const tsProject = ts.createProject('tsconfig.json');
 
@@ -86,18 +107,22 @@ gulp.task('babeljs', function() {
     presets: ['env', 'es2015', 'react', 'stage-0'],
     plugins: ['transform-runtime']
   }))
-  // .pipe(rename({
-  //   suffix: '.es5'
-  // }))
+  .pipe(gulp.dest('dist'))
+  .pipe(reload({stream: true}));
+})
+
+// 编译jsx
+gulp.task('jsx', function() {
+  return gulp.src(filePath.jsx)
+  .pipe(babel({
+    presets: ['env', 'es2015', 'react', 'stage-0'],
+    plugins: ['transform-runtime']
+  }))
   .pipe(gulp.dest('dist'))
   .pipe(webpack({
     output: {filename: '[name].js'}
   }))
-  .pipe(gulp.dest(e => {
-    console.log(e.cwd, e.base, e.path)
-    return 'dist'
-  }))
-  .pipe(reload({stream: true}));
+  .pipe(gulp.dest('ddst'));
 })
 
 // 编译ts
@@ -155,6 +180,7 @@ gulp.task('serve', ['sass', 'less', 'babeljs', 'typescript'], function() {
   gulp.watch(filePath.scss, ['sass']);
   gulp.watch(filePath.js, ['babeljs']);
   gulp.watch(filePath.ts, ['typescript']);
+  gulp.watch(filePath.html, ['copyhtml']);
   gulp.watch("app/**/*.html").on('change', reload);
 });
 
