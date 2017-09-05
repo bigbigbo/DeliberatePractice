@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box1{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 1px solid #cdcdcd;
+    }
+
+    .box1:hover{
+      width: 30px;
+      height: 30px;
+      padding: -5px;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6px #000;
+      border-radius: 50%;
+      background-color: #000;
+    } 
+
+    .box2{
+      width: 20px;
+      height: 20px;
+      margin: 2em auto 0;
+      box-shadow: 0 0 0 5px #fff, 0 0 0 6px #000;
+      border-radius: 50%;
+      background-color: #000;
+    }
+
+    .box3{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: 1px solid #cdcdcd;
+      position: relative;
+    }
+
+    .box3::before{
+      content: "";
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -10px;
+      margin-top: -10px;
+      /* background-color: #000; */
+    }
+
+    .box3:active::before{
+      /* border-color: #000; */
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+  <h3>一个div实现radio效果</h3>
+  <h4>方案1效果不好</h4>
+  <div class="box1"></div>
+  <div class="box2"></div>
+
+  <h4>方案2</h4>
+  <div class="box3"></div>
+</body>
+</html>

@@ -41,7 +41,7 @@ function upload(key, imgPath) {
         console.log('图片上传成功==>', imgQiniuUrl);
         uploadImages[imgPath] = imgQiniuUrl
         // 处理图片上传结束，为什么这边return后调用者拿到的是一个undefined呢
-        if (Object.keys(uploadImages).length === imgPaths.length) {
+        if (Object.keys(uploadImages).length >= imgPaths.length - 1) {
           onComplete(uploadImages)
         }
       } else {
