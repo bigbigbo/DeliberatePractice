@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .t-wrapper{
+      position: relative;
+      display: inline-block;
+    }
+
+    .bg-color{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      background-color: black;
+      z-index: -3;
+    }
+
+    .asset{
+      width: 412px;
+      height: 303px;
+      position: absolute;
+      left: 200px;
+      top: 200px;
+      z-index: -2;
+      background: url('../assets/images/gou.png') 0 0 no-repeat;
+      -webkit-mask-image: url('../assets/images/mask.png');
+      -webkit-mask-position: -200px -200px;
+      /* -webkit-mask-size: 100% 100%; */
+      /* -webkit-mask-clip: content-box; */
+    }
+    
+    .tshirt{
+      z-index: -1;
+    }
+
+    .shadow{
+      position: absolute;
+      left: 200px;
+      top: 200px;
+    }
+
+    .ttshirt{
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    .ttt{
+      height: 100vh;
+    }
+
+    .icon{
+      position: absolute;
+      left: 280px;
+      top: 280px;
+      width: 15vh;
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- <div class="t-wrapper">
+    <div class="bg-color"></div>
+    <img class="tshirt" src="../assets/images/t.png" alt="" />
+    <div class="asset"></div>
+  </div> -->
+
+  <div class="wrapper">
+    <img class="ttt" src="../assets/images/201711127.jpg" alt="" />
+    <img class="icon" src="../assets/images/t2.png" alt="" />
+  </div>
+</body>
+</html>
