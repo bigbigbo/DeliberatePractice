@@ -36,8 +36,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: '测试一下咯'
     }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'common' // 抽离公共代码，指定公共 bundle 的名称
-    })
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'common' // 抽离公共代码，指定公共 bundle 的名称
+    // })
   ]
 };

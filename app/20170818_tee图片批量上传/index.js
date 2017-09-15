@@ -5,15 +5,16 @@ const config = new qiniu.conf.Config();
 config.zone = qiniu.zone.Zone_z0;
 const formUploader = new qiniu.form_up.FormUploader(config)
 const imgPaths = fs.readdirSync('./images');
-const IMAGE_KEY = 'uploads/images/CampaignDescriptionImage/';
-const baseHost = 'https://o6nb11dsz.qnssl.com/'
+const IMAGE_KEY = 'uploads/images/extends/';
+const baseHost = 'https://o86bvekvw.qnssl.com/'
 const uploadImages = {};
 
 // 多图上传
 imgPaths.forEach((imgPath) => {
+  if(imgPath.indexOf('DS_Store') > -1) return;
   const url = './images/' + imgPath
-  const today = new Date();
-  const key = IMAGE_KEY + imgPath;
+  const today = Date.now();
+  const key = IMAGE_KEY + today + imgPath;
   upload(key, url)
 })
 
@@ -54,7 +55,8 @@ function upload(key, imgPath) {
 
 // 获取token
 function getToken() {
-  return fetch('https://tshe-dev.me/images/token', {method: 'POST'})
+  return fetch('https://www.tshe.com/images/token', {method: 'POST'})
   .then(res => res.json())
-	.then(json => json);
+  .then(json => json)
+  .catch(e => console.log('get token fail==>', e))
 }
